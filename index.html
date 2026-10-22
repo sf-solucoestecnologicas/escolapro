@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EscolaPro | Gestão escolar com IA para escolas pequenas</title>
+    <meta
+      name="description"
+      content="Matrícula, diário, boletim, mensalidades por PIX e comunicação com as famílias num só lugar, com assistentes de IA. Para escolas de educação infantil, fundamental e médio."
+    />
+    <meta name="theme-color" content="#4f46e5" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="EscolaPro: gestão escolar com IA para escolas pequenas" />
+    <meta property="og:description" content="Diário, boletim, mensalidades por PIX, WhatsApp e assistentes de IA. Teste grátis por 14 dias." />
+    <meta property="og:url" content="https://sf-solucoestecnologicas.github.io/escolapro/" />
+    <meta property="og:image" content="https://sf-solucoestecnologicas.github.io/escolapro/img/og.jpg" />
+    <link rel="canonical" href="https://sf-solucoestecnologicas.github.io/escolapro/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
+    <!-- Ícones (Lucide, licença ISC) -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0l1.58 6.14a2 2 0 0 0 1.44 1.44l6.14 1.58a.5.5 0 0 1 0 .96l-6.14 1.58a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z" /></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+        <symbol id="i-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></symbol>
+        <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14" /><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" /></symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /></symbol>
+        <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></symbol>
+        <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" /><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /></symbol>
+        <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" /><path d="M19 10v2a7 7 0 0 1-14 0v-2" /><path d="M12 19v3" /></symbol>
+        <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M16 13H8M16 17H8M10 9H8" /></symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></symbol>
+        <symbol id="i-clipboard" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="m9 14 2 2 4-4" /></symbol>
+        <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18" /><path d="M7 16v-5M12 16V8M17 16v-3" /></symbol>
+        <symbol id="i-trend" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17" /><path d="M16 7h6v6" /></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></symbol>
+        <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m17 8-5-5-5 5M12 3v12" /></symbol>
+        <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z" /><path d="M22 10v6M6 12.5V16a6 3 0 0 0 12 0v-3.5" /></symbol>
+        <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9 10h.01M15 10h.01M9.5 15a3.5 3.5 0 0 0 5 0" /></symbol>
+        <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" /></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" /></symbol>
+        <symbol id="i-logo" viewBox="0 0 64 64">
+          <defs>
+            <linearGradient id="g-logo" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse"><stop stop-color="#4F46E5" /><stop offset="1" stop-color="#7C3AED" /></linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="16" fill="url(#g-logo)" />
+          <rect x="15" y="15" width="8" height="34" rx="4" fill="#fff" />
+          <rect x="15" y="15" width="27" height="8" rx="4" fill="#fff" />
+          <rect x="15" y="28" width="21" height="8" rx="4" fill="#fff" fill-opacity=".85" />
+          <rect x="15" y="41" width="27" height="8" rx="4" fill="#fff" />
+          <path d="M49.5 11.5c.9 4 2.6 5.7 6.5 6.5-3.9.9-5.6 2.6-6.5 6.5-.9-3.9-2.6-5.6-6.5-6.5 3.9-.8 5.6-2.5 6.5-6.5Z" fill="#FBBF24" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <header class="topo">
+      <div class="conteiner topo__linha">
+        <a href="#" class="marca" aria-label="EscolaPro, início">
+          <svg class="marca__simbolo"><use href="#i-logo" /></svg>
+          <span>Escola<b>Pro</b></span>
+        </a>
+        <nav class="topo__menu" id="menu" aria-label="Seções">
+          <a href="#recursos">Recursos</a>
+          <a href="#ia">IA</a>
+          <a href="#financeiro">Mensalidades</a>
+          <a href="#precos">Preços</a>
+          <a href="#duvidas">Dúvidas</a>
+        </nav>
+        <div class="topo__acoes">
+          <a class="botao botao--primario botao--pequeno" data-cta href="#contato">Teste grátis</a>
+          <button class="topo__abrir" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><svg class="ic"><use href="#i-menu" /></svg></button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Abertura -->
+      <section class="abertura">
+        <div class="abertura__brilho" aria-hidden="true"></div>
+        <div class="conteiner abertura__grade">
+          <div class="abertura__texto">
+            <span class="selo"><svg class="ic"><use href="#i-sparkles" /></svg> Assistentes de IA para toda a escola</span>
+            <h1>A gestão da sua escola, simples. <span class="destaque">Com IA trabalhando por você.</span></h1>
+            <p class="abertura__sub">
+              Matrícula, diário, boletim, mensalidades por PIX e conversa com as famílias no mesmo lugar. Feito para escolas pequenas de educação infantil, fundamental e médio.
+            </p>
+            <div class="abertura__ctas">
+              <a class="botao botao--primario" data-cta href="#contato">Testar grátis por 14 dias <svg class="ic"><use href="#i-arrow" /></svg></a>
+              <a class="botao botao--secundario" href="#recursos">Ver como funciona</a>
+            </div>
+            <ul class="garantias">
+              <li><svg class="ic"><use href="#i-check" /></svg> Sem cartão de crédito</li>
+              <li><svg class="ic"><use href="#i-check" /></svg> Traz seus alunos da planilha</li>
+              <li><svg class="ic"><use href="#i-check" /></svg> Funciona no celular</li>
+            </ul>
+          </div>
+          <div class="vitrine" aria-label="Telas do EscolaPro">
+            <figure class="navegador">
+              <div class="navegador__barra"><span></span><span></span><span></span></div>
+              <picture>
+                <source srcset="img/painel-escuro.jpg" media="(prefers-color-scheme: dark)" />
+                <img src="img/painel.jpg" width="1280" height="800" alt="Painel da direção com alunos ativos, frequência, recebimentos do mês e inadimplência" />
+              </picture>
+            </figure>
+            <figure class="celular celular--vitrine">
+              <img src="img/portal-familia.jpg" width="390" height="844" alt="Portal da família no celular com mensalidades e comunicados" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Faixa de destaques -->
+      <section class="faixa" aria-label="Destaques">
+        <div class="conteiner faixa__grade">
+          <div><strong>30 s</strong><span>para fazer a chamada</span></div>
+          <div><strong>24 h</strong><span>secretaria virtual no WhatsApp</span></div>
+          <div><strong>PIX</strong><span>com baixa automática</span></div>
+          <div><strong>BNCC</strong><span>integrada ao planejamento</span></div>
+        </div>
+      </section>
+
+      <!-- Áreas -->
+      <section id="recursos" class="secao">
+        <div class="conteiner">
+          <header class="secao__titulo">
+            <span class="sobretitulo">Uma plataforma, três áreas</span>
+            <h2>Cada pessoa vê o que precisa. E nada mais.</h2>
+            <p>Direção, professores e famílias entram pelo mesmo endereço, cada um na sua área, com permissões por perfil.</p>
+          </header>
+          <div class="areas">
+            <article class="area">
+              <span class="area__icone"><svg class="ic"><use href="#i-grid" /></svg></span>
+              <h3>Gestão</h3>
+              <p>O retrato da escola numa tela só.</p>
+              <ul class="lista-check">
+                <li>Matrículas, turmas e transferências</li>
+                <li>Financeiro com previsto, recebido e inadimplência</li>
+                <li>Captação de alunos em funil</li>
+                <li>Comunicados com confirmação de leitura</li>
+                <li>Importação de planilhas com prévia</li>
+              </ul>
+            </article>
+            <article class="area">
+              <span class="area__icone area__icone--verde"><svg class="ic"><use href="#i-book" /></svg></span>
+              <h3>Professores</h3>
+              <p>Menos burocracia, mais aula.</p>
+              <ul class="lista-check">
+                <li>Chamada em segundos, no celular</li>
+                <li>Notas com média e recuperação automáticas</li>
+                <li>Tarefas com entrega e retorno</li>
+                <li>Pareceres descritivos da educação infantil</li>
+                <li>Rotina do dia: alimentação, sono e recados</li>
+              </ul>
+            </article>
+            <article class="area">
+              <span class="area__icone area__icone--rosa"><svg class="ic"><use href="#i-heart" /></svg></span>
+              <h3>Famílias e alunos</h3>
+              <p>A escola no bolso, sem baixar aplicativo.</p>
+              <ul class="lista-check">
+                <li>Boletim, frequência e agenda de provas</li>
+                <li>Mensalidade por PIX, boleto ou cartão</li>
+                <li>Autorizações de passeio com um toque</li>
+                <li>Enquetes e comunicados da escola</li>
+                <li>Atendimento 24h pela secretaria virtual</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- IA -->
+      <section id="ia" class="secao secao--escura">
+        <div class="conteiner">
+          <header class="secao__titulo">
+            <span class="sobretitulo sobretitulo--claro"><svg class="ic"><use href="#i-sparkles" /></svg> Assistentes de IA</span>
+            <h2>O trabalho repetitivo fica com a IA. As decisões, com a escola.</h2>
+            <p>Os assistentes propõem, a equipe aprova. Você define um limite de gasto por mês e acompanha tudo no painel.</p>
+          </header>
+          <div class="agentes">
+            <article class="agente">
+              <svg class="ic"><use href="#i-chat" /></svg>
+              <h3>Secretaria virtual 24h</h3>
+              <p>Responde às famílias no WhatsApp e no portal com base no regimento, no calendário e nas regras da escola. Quando não sabe, chama a equipe.</p>
+            </article>
+            <article class="agente">
+              <svg class="ic"><use href="#i-calendar" /></svg>
+              <h3>Planejamento com a BNCC</h3>
+              <p>Sugere sequências de aulas ligadas às habilidades da BNCC da série e do componente. O professor ajusta e salva.</p>
+            </article>
+            <article class="agente">
+              <svg class="ic"><use href="#i-mic" /></svg>
+              <h3>Diário por voz</h3>
+              <p>O professor fala o que aconteceu na aula e o registro sai organizado: conteúdo, ocorrências e recados.</p>
+            </article>
+            <article class="agente">
+              <svg class="ic"><use href="#i-file" /></svg>
+              <h3>Provas e pareceres</h3>
+              <p>Gera provas com gabarito a partir do conteúdo dado e rascunhos de pareceres descritivos a partir das observações.</p>
+            </article>
+            <article class="agente">
+              <svg class="ic"><use href="#i-chart" /></svg>
+              <h3>Copiloto da direção</h3>
+              <p>Pergunte em português: “quais turmas têm mais faltas?” ou “quanto entra este mês?”, e receba a resposta com os números da escola.</p>
+            </article>
+            <article class="agente">
+              <svg class="ic"><use href="#i-wallet" /></svg>
+              <h3>Acordos de cobrança</h3>
+              <p>Propõe parcelamentos para famílias em atraso dentro dos limites que a escola definiu. Nada é enviado sem aprovação.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Financeiro -->
+      <section id="financeiro" class="secao">
+        <div class="conteiner dupla">
+          <div class="dupla__texto">
+            <span class="sobretitulo">Mensalidades</span>
+            <h2>Mensalidades que se cobram sozinhas.</h2>
+            <p>Os contratos geram as cobranças do ano. A família recebe o lembrete no WhatsApp, paga por PIX, boleto ou cartão, e a baixa acontece sozinha.</p>
+            <ul class="lista-check lista-check--grande">
+              <li><b>Dinheiro direto na conta da escola.</b> As cobranças saem por uma conta Asaas no nome da escola, instituição autorizada pelo Banco Central.</li>
+              <li><b>Régua de lembretes automática.</b> Antes, no dia e depois do vencimento, e para assim que o pagamento cai.</li>
+              <li><b>Multa, juros e desconto de pontualidade</b> calculados do jeito que a escola configurou.</li>
+              <li><b>Inadimplência à vista</b> no painel, família por família.</li>
+            </ul>
+          </div>
+          <div class="dupla__imagem">
+            <figure class="celular">
+              <img src="img/portal-pix.jpg" width="390" height="844" alt="Tela de mensalidades do portal da família com botão de pagar por PIX" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Professor -->
+      <section class="secao secao--suave">
+        <div class="conteiner dupla dupla--invertida">
+          <div class="dupla__texto">
+            <span class="sobretitulo">Sala de aula</span>
+            <h2>O diário que o professor preenche no intervalo.</h2>
+            <p>Chamada, conteúdo, notas e tarefas na mesma tela, pensada para o celular. A média de cada período e a situação final saem sozinhas, com as regras da sua escola.</p>
+            <ul class="lista-check lista-check--grande">
+              <li><b>Regras de média por segmento:</b> aritmética, ponderada ou soma, com recuperação.</li>
+              <li><b>Alerta de faltas seguidas</b> para a coordenação agir cedo.</li>
+              <li><b>Boletim pronto</b> para a família acompanhar no portal.</li>
+            </ul>
+          </div>
+          <div class="dupla__imagem">
+            <figure class="navegador navegador--pequeno">
+              <div class="navegador__barra"><span></span><span></span><span></span></div>
+              <img src="img/diario.jpg" width="1280" height="800" alt="Diário de classe com chamada e notas" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Educação infantil -->
+      <section class="secao">
+        <div class="conteiner dupla">
+          <div class="dupla__texto">
+            <span class="sobretitulo">Educação infantil</span>
+            <h2>Sem bilhete perdido na mochila.</h2>
+            <p>A professora registra a rotina de cada criança em poucos toques, e a família vê no mesmo dia.</p>
+            <div class="mini-grade">
+              <div class="mini"><svg class="ic"><use href="#i-smile" /></svg><b>Rotina do dia</b><span>Alimentação, sono, humor, trocas e recados.</span></div>
+              <div class="mini"><svg class="ic"><use href="#i-clipboard" /></svg><b>Autorizações</b><span>Passeios com aceite digital, data, hora e quem autorizou.</span></div>
+              <div class="mini"><svg class="ic"><use href="#i-chart" /></svg><b>Enquetes</b><span>Data da reunião, cardápio, satisfação: resposta em minutos.</span></div>
+              <div class="mini"><svg class="ic"><use href="#i-file" /></svg><b>Pareceres</b><span>Relatórios descritivos de cada criança, com rascunho da IA.</span></div>
+            </div>
+          </div>
+          <div class="dupla__imagem">
+            <figure class="celular">
+              <img src="img/rotina.jpg" width="390" height="844" alt="Registro da rotina do dia de uma turma de educação infantil no celular" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Preços -->
+      <section id="precos" class="secao secao--suave">
+        <div class="conteiner">
+          <header class="secao__titulo">
+            <span class="sobretitulo">Preços</span>
+            <h2>Um plano para cada tamanho de escola.</h2>
+            <p>Todos os recursos de gestão, professores e famílias em todos os planos. A diferença é o número de alunos.</p>
+          </header>
+          <div class="alternar-ia">
+            <label class="chave">
+              <input type="checkbox" id="com-ia" checked />
+              <span class="chave__trilho" aria-hidden="true"></span>
+              <span>Com assistentes de IA</span>
+            </label>
+          </div>
+          <div class="planos">
+            <article class="plano" data-base="29900" data-ia="14900">
+              <h3>Essencial</h3>
+              <p class="plano__resumo">Para escolas de bairro e educação infantil</p>
+              <div class="plano__preco"><span class="plano__valor">R$ 448</span><span>/mês</span></div>
+              <p class="plano__limite">até 150 alunos</p>
+              <a class="botao botao--secundario botao--largo" data-cta href="#contato">Começar teste grátis</a>
+            </article>
+            <article class="plano plano--destaque" data-base="59900" data-ia="29900">
+              <span class="plano__fita">Mais escolhido</span>
+              <h3>Escola</h3>
+              <p class="plano__resumo">Infantil, fundamental e médio na mesma escola</p>
+              <div class="plano__preco"><span class="plano__valor">R$ 898</span><span>/mês</span></div>
+              <p class="plano__limite">até 400 alunos</p>
+              <a class="botao botao--primario botao--largo" data-cta href="#contato">Começar teste grátis</a>
+            </article>
+            <article class="plano" data-base="99900" data-ia="49900">
+              <h3>Rede</h3>
+              <p class="plano__resumo">Escolas maiores e pequenas redes com várias unidades</p>
+              <div class="plano__preco"><span class="plano__valor">R$ 1.498</span><span>/mês</span></div>
+              <p class="plano__limite">até 1.000 alunos</p>
+              <a class="botao botao--secundario botao--largo" data-cta href="#contato">Começar teste grátis</a>
+            </article>
+          </div>
+          <ul class="incluso">
+            <li><svg class="ic"><use href="#i-check" /></svg> 14 dias grátis, sem cartão</li>
+            <li><svg class="ic"><use href="#i-check" /></svg> Troque de plano quando quiser</li>
+            <li><svg class="ic"><use href="#i-check" /></svg> Fatura por PIX, boleto ou cartão</li>
+            <li><svg class="ic"><use href="#i-check" /></svg> Tarifas de PIX e boleto das mensalidades cobradas pelo Asaas</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Segurança -->
+      <section class="secao">
+        <div class="conteiner">
+          <header class="secao__titulo">
+            <span class="sobretitulo">Segurança e LGPD</span>
+            <h2>Dados de criança pedem cuidado redobrado.</h2>
+          </header>
+          <div class="seguranca">
+            <div><svg class="ic"><use href="#i-shield" /></svg><b>Cada escola isolada</b><span>O banco de dados impede, por regra, que uma escola veja dados de outra.</span></div>
+            <div><svg class="ic"><use href="#i-users" /></svg><b>Acesso por perfil</b><span>Professor vê as próprias turmas; família vê só os próprios filhos.</span></div>
+            <div><svg class="ic"><use href="#i-clipboard" /></svg><b>Registro de ações</b><span>Quem alterou nota, cobrança ou cadastro, e quando.</span></div>
+            <div><svg class="ic"><use href="#i-lock" /></svg><b>Segredos cifrados</b><span>Senhas com hash forte e chaves de pagamento criptografadas.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dúvidas -->
+      <section id="duvidas" class="secao secao--suave">
+        <div class="conteiner conteiner--estreito">
+          <header class="secao__titulo">
+            <span class="sobretitulo">Dúvidas</span>
+            <h2>Perguntas frequentes</h2>
+          </header>
+          <div class="faq">
+            <details>
+              <summary>Preciso instalar alguma coisa?</summary>
+              <p>Não. O EscolaPro funciona no navegador do computador e do celular. Famílias e professores entram com e-mail ou celular, sem baixar aplicativo.</p>
+            </details>
+            <details>
+              <summary>Consigo trazer os alunos que já tenho em planilha?</summary>
+              <p>Sim. Você envia a planilha em CSV (salva direto do Excel ou do Google Planilhas), o sistema reconhece as colunas, mostra uma prévia e reaproveita quem já está cadastrado, sem duplicar.</p>
+            </details>
+            <details>
+              <summary>Como funciona o WhatsApp?</summary>
+              <p>A escola conecta o próprio número. Lembretes de mensalidade, comunicados e autorizações saem por ele, e as famílias podem conversar com a secretaria virtual pelo mesmo número.</p>
+            </details>
+            <details>
+              <summary>Como a escola recebe as mensalidades?</summary>
+              <p>Se quiser, no cadastro abrimos uma conta Asaas no nome da escola. As famílias pagam por PIX, boleto ou cartão e o dinheiro cai direto nessa conta, com baixa automática no EscolaPro. Quem preferir pode continuar recebendo como hoje e registrar os pagamentos manualmente.</p>
+            </details>
+            <details>
+              <summary>A IA é obrigatória?</summary>
+              <p>Não. Os assistentes de IA são um adicional. Dá para ligar e desligar quando quiser, e definir um limite de gasto por mês.</p>
+            </details>
+            <details>
+              <summary>Serve para educação infantil?</summary>
+              <p>Sim. Além das séries com nota, o EscolaPro tem rotina diária, pareceres descritivos e autorizações digitais, pensados para a educação infantil.</p>
+            </details>
+            <details>
+              <summary>E a LGPD?</summary>
+              <p>A escola é a controladora dos dados e o EscolaPro trata apenas o necessário para o serviço. Os acessos são por perfil, as ações ficam registradas e os dados de cada escola são isolados no banco.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chamada final -->
+      <section id="contato" class="final">
+        <div class="conteiner final__caixa">
+          <h2>Pronto para organizar a sua escola?</h2>
+          <p>Comece hoje e veja a sua escola funcionando no EscolaPro ainda nesta semana.</p>
+          <div class="final__acoes">
+            <a class="botao botao--claro" data-cta data-cta-final href="#contato">Testar grátis por 14 dias <svg class="ic"><use href="#i-arrow" /></svg></a>
+          </div>
+          <p class="final__nota" id="contato-nota">O cadastro online abre em breve. Para participar do grupo de escolas pioneiras, fale com a SF Soluções Tecnológicas.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="conteiner rodape__linha">
+        <a href="#" class="marca marca--pequena" aria-label="EscolaPro, voltar ao início">
+          <svg class="marca__simbolo"><use href="#i-logo" /></svg>
+          <span>Escola<b>Pro</b></span>
+        </a>
+        <p>© <span id="ano">2026</span> EscolaPro · um produto <a href="https://github.com/sf-solucoestecnologicas">SF Soluções Tecnológicas</a></p>
+      </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="site.js"></script>
+  </body>
+</html>
