@@ -1,4 +1,4 @@
-/* EscolaPro: movimento e efeitos da landing page.
+/* Semeio: movimento e efeitos da landing page.
    Só transform e opacity (leve no celular). Com "reduzir movimento" ligado, tudo fica parado. */
 
 @property --angulo {
@@ -15,7 +15,7 @@
   height: 3px;
   transform-origin: 0 50%;
   transform: scaleX(var(--progresso, 0));
-  background: linear-gradient(90deg, #4f46e5, #a855f7, #fbbf24);
+  background: linear-gradient(90deg, #0e6b45, #6cc05c, #f5b800);
 }
 
 /* Cabeçalho ganha sombra depois de rolar */
@@ -52,13 +52,13 @@
 .aurora span:nth-child(1) {
   top: -18%;
   left: -8%;
-  background: #7c3aed;
+  background: #4ba84a;
   animation: aurora-a 18s ease-in-out infinite alternate;
 }
 .aurora span:nth-child(2) {
   top: -10%;
   right: -6%;
-  background: #4f46e5;
+  background: #0e6b45;
   animation: aurora-b 22s ease-in-out infinite alternate;
 }
 .aurora span:nth-child(3) {
@@ -71,7 +71,7 @@
 .aurora span:nth-child(4) {
   bottom: -20%;
   right: 10%;
-  background: #ec4899;
+  background: #2f8f55;
   opacity: 0.22;
   animation: aurora-a 30s ease-in-out infinite alternate-reverse;
 }
@@ -199,7 +199,7 @@
   position: absolute;
   inset: 8% 6% 14%;
   border-radius: 40px;
-  background: conic-gradient(from var(--angulo), #4f46e5, #a855f7, #fbbf24, #ec4899, #4f46e5);
+  background: conic-gradient(from var(--angulo), #0e6b45, #6cc05c, #f5b800, #2f8f55, #0e6b45);
   filter: blur(46px);
   opacity: 0.45;
   animation: girar 10s linear infinite;
@@ -299,7 +299,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgb(124 58 237 / 0.14), transparent 45%);
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgb(75 168 74 / 0.14), transparent 45%);
   opacity: 0;
   transition: opacity 0.3s;
   pointer-events: none;
@@ -325,7 +325,7 @@
   .area:hover,
   .plano:hover {
     transform: translateY(-6px);
-    box-shadow: 0 24px 50px -24px rgb(79 70 229 / 0.35);
+    box-shadow: 0 24px 50px -24px rgb(14 107 69 / 0.35);
   }
 }
 .area__icone {
@@ -340,7 +340,7 @@
   border: 2px solid transparent;
   background:
     linear-gradient(var(--superficie), var(--superficie)) padding-box,
-    conic-gradient(from var(--angulo), #4f46e5, #a855f7, #fbbf24, #ec4899, #4f46e5) border-box;
+    conic-gradient(from var(--angulo), #0e6b45, #6cc05c, #f5b800, #2f8f55, #0e6b45) border-box;
   animation: girar 5s linear infinite;
 }
 .plano__valor {
@@ -368,7 +368,7 @@
   top: var(--y);
   width: 14px;
   height: 14px;
-  background: #fbbf24;
+  background: #f5b800;
   clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
   opacity: 0;
   animation: piscar 4s ease-in-out infinite var(--d);
@@ -392,7 +392,7 @@
 /* Chamada final com gradiente em movimento */
 .final__caixa {
   background-size: 200% 200%;
-  background-image: linear-gradient(120deg, #4338ca, #6d28d9, #7c3aed, #4338ca);
+  background-image: linear-gradient(120deg, #0a4a33, #0b5a3b, #4ba84a, #0a4a33);
   animation: mover-gradiente 14s ease infinite;
 }
 @keyframes mover-gradiente {

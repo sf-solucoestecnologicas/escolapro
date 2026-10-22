@@ -7,7 +7,7 @@
   if (config.app) {
     destino = config.app.replace(/\/$/, "") + "/cadastro";
   } else if (config.whatsapp) {
-    destino = "https://wa.me/" + config.whatsapp.replace(/\D/g, "") + "?text=" + encodeURIComponent("Olá! Quero conhecer o EscolaPro para a minha escola.");
+    destino = "https://wa.me/" + config.whatsapp.replace(/\D/g, "") + "?text=" + encodeURIComponent("Olá! Quero conhecer o Semeio para a minha escola.");
   }
   if (destino) {
     document.querySelectorAll("[data-cta]").forEach(function (a) {

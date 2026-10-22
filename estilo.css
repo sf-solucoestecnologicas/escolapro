@@ -1,25 +1,25 @@
-/* EscolaPro: landing page. Mesmas cores e fontes do app (ver docs/identidade-visual.md). */
+/* Semeio: landing page. Mesmas cores e fontes do app (ver docs/identidade-visual.md). */
 
 :root {
-  --marca: #4f46e5;
-  --marca-forte: #4338ca;
-  --violeta: #7c3aed;
-  --faisca: #fbbf24;
+  --marca: #0e6b45;
+  --marca-forte: #0a4a33;
+  --violeta: #4ba84a;
+  --faisca: #f5b800;
   --fundo: #ffffff;
-  --fundo-suave: #f8fafc;
+  --fundo-suave: #f7f5ef;
   --superficie: #ffffff;
   --borda: #e2e8f0;
   --texto: #0f172a;
   --texto-2: #475569;
   --texto-3: #64748b;
-  --marca-suave: #eef2ff;
-  --marca-texto: #4338ca;
+  --marca-suave: #ecf7f0;
+  --marca-texto: #0a4a33;
   --verde: #059669;
   --verde-suave: #ecfdf5;
   --rosa: #e11d48;
   --rosa-suave: #fff1f2;
   --sombra: 0 1px 2px rgb(15 23 42 / 0.04), 0 8px 24px -12px rgb(15 23 42 / 0.12);
-  --sombra-forte: 0 30px 60px -20px rgb(30 27 75 / 0.35);
+  --sombra-forte: 0 30px 60px -20px rgb(8 60 42 / 0.35);
   --raio: 16px;
   --fonte-titulo: "Plus Jakarta Sans", system-ui, sans-serif;
   --fonte: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -35,8 +35,8 @@
     --texto: #f1f5f9;
     --texto-2: #cbd5e1;
     --texto-3: #94a3b8;
-    --marca-suave: #1e1b4b;
-    --marca-texto: #a5b4fc;
+    --marca-suave: #0a2e20;
+    --marca-texto: #a9dabb;
     --verde: #34d399;
     --verde-suave: #052e1f;
     --rosa: #fb7185;
@@ -54,8 +54,8 @@
   --texto: #f1f5f9;
   --texto-2: #cbd5e1;
   --texto-3: #94a3b8;
-  --marca-suave: #1e1b4b;
-  --marca-texto: #a5b4fc;
+  --marca-suave: #0a2e20;
+  --marca-texto: #a9dabb;
   --verde: #34d399;
   --verde-suave: #052e1f;
   --rosa: #fb7185;
@@ -158,7 +158,7 @@ p {
 .botao--primario {
   background: var(--marca);
   color: #fff;
-  box-shadow: 0 8px 20px -8px rgb(79 70 229 / 0.6);
+  box-shadow: 0 8px 20px -8px rgb(14 107 69 / 0.6);
 }
 .botao--primario:hover {
   background: var(--marca-forte);
@@ -206,10 +206,10 @@ p {
   gap: 10px;
   text-decoration: none;
   font-family: var(--fonte-titulo);
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--texto);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--marca-texto);
 }
 .marca b {
   font-weight: 800;
@@ -295,8 +295,8 @@ p {
   inset: -200px -20% auto;
   height: 700px;
   background:
-    radial-gradient(40% 50% at 20% 30%, rgb(124 58 237 / 0.18), transparent 70%),
-    radial-gradient(35% 45% at 80% 20%, rgb(79 70 229 / 0.2), transparent 70%),
+    radial-gradient(40% 50% at 20% 30%, rgb(75 168 74 / 0.18), transparent 70%),
+    radial-gradient(35% 45% at 80% 20%, rgb(14 107 69 / 0.2), transparent 70%),
     radial-gradient(30% 40% at 60% 70%, rgb(251 191 36 / 0.12), transparent 70%);
   pointer-events: none;
 }
@@ -592,8 +592,8 @@ p {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(45% 60% at 15% 0%, rgb(124 58 237 / 0.35), transparent 70%),
-    radial-gradient(40% 50% at 90% 100%, rgb(79 70 229 / 0.35), transparent 70%);
+    radial-gradient(45% 60% at 15% 0%, rgb(75 168 74 / 0.35), transparent 70%),
+    radial-gradient(40% 50% at 90% 100%, rgb(14 107 69 / 0.35), transparent 70%);
   pointer-events: none;
 }
 .secao--escura .conteiner {
@@ -637,7 +637,7 @@ p {
 }
 .agente .ic {
   font-size: 24px;
-  color: #a5b4fc;
+  color: #a9dabb;
 }
 .agente h3 {
   margin-top: 14px;
@@ -787,7 +787,7 @@ p {
 }
 .plano--destaque {
   border: 2px solid var(--marca);
-  box-shadow: 0 20px 50px -20px rgb(79 70 229 / 0.45);
+  box-shadow: 0 20px 50px -20px rgb(14 107 69 / 0.45);
 }
 .plano__fita {
   position: absolute;
@@ -940,7 +940,7 @@ p {
   border-radius: 28px;
   text-align: center;
   color: #fff;
-  background: linear-gradient(120deg, #4338ca, #6d28d9 55%, #7c3aed);
+  background: linear-gradient(120deg, #0a4a33, #0b5a3b 55%, #4ba84a);
   box-shadow: var(--sombra-forte);
 }
 .final__caixa::after {
