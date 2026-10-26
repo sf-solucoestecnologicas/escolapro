@@ -2,10 +2,10 @@
 (function () {
   var config = window.ESCOLAPRO || {};
 
-  // Destino dos botões "Teste grátis": cadastro no app, WhatsApp ou a seção de contato.
+  // Destino dos botões de ação: página de login do app, WhatsApp ou a seção de contato.
   var destino = null;
   if (config.app) {
-    destino = config.app.replace(/\/$/, "") + "/cadastro";
+    destino = config.app.replace(/\/$/, "") + "/";
   } else if (config.whatsapp) {
     destino = "https://wa.me/" + config.whatsapp.replace(/\D/g, "") + "?text=" + encodeURIComponent("Olá! Quero conhecer o Semeio para a minha escola.");
   }
@@ -20,7 +20,7 @@
     var nota = document.getElementById("contato-nota");
     if (nota) {
       nota.textContent = config.app
-        ? "14 dias grátis, sem cartão de crédito. A primeira fatura só chega depois do teste."
+        ? "Entre na sua conta ou crie a da escola: 14 dias grátis, sem cartão de crédito."
         : "Respondemos pelo WhatsApp e mostramos o sistema funcionando com os dados de uma escola de exemplo.";
     }
   } else {
@@ -48,7 +48,7 @@
     });
   }
 
-  // Preços com e sem IA (valores em centavos nos atributos data-*).
+  // Preços (centavos nos atributos data-*). O adicional de IA fica fora da oferta por enquanto.
   var comIa = document.getElementById("com-ia");
   function atualizarPrecos(animar) {
     document.querySelectorAll(".plano").forEach(function (p) {
