@@ -20,7 +20,7 @@
     var nota = document.getElementById("contato-nota");
     if (nota) {
       nota.textContent = config.app
-        ? "Entre na sua conta ou crie a da escola: 14 dias grátis, sem cartão de crédito."
+        ? "Entre na sua conta, explore os perfis de demonstração ou crie a conta da escola e assine em poucos minutos."
         : "Respondemos pelo WhatsApp e mostramos o sistema funcionando com os dados de uma escola de exemplo.";
     }
   } else {
