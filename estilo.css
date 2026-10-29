@@ -670,6 +670,9 @@ p {
   font-size: 18px;
   color: var(--texto-2);
 }
+.dupla__acao {
+  margin-top: 28px;
+}
 .dupla__imagem {
   display: flex;
   justify-content: center;
