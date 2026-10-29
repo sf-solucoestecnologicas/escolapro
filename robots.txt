@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sf-solucoestecnologicas.github.io/escolapro/sitemap.xml

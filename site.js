@@ -1,36 +1,37 @@
-// Comportamento da landing page: destino dos botões, menu do celular e preços com/sem IA.
+// Comportamento da landing page: destino dos botões, eventos de conversão, menu do celular e preços.
 (function () {
   var config = window.ESCOLAPRO || {};
 
-  // Destino dos botões de ação: página de login do app, WhatsApp ou a seção de contato.
-  var destino = null;
-  if (config.app) {
-    destino = config.app.replace(/\/$/, "") + "/";
-  } else if (config.whatsapp) {
-    destino = "https://wa.me/" + config.whatsapp.replace(/\D/g, "") + "?text=" + encodeURIComponent("Olá! Quero conhecer o Semeio para a minha escola.");
-  }
-  if (destino) {
-    document.querySelectorAll("[data-cta]").forEach(function (a) {
-      a.href = destino;
-      if (!config.app) {
-        a.target = "_blank";
-        a.rel = "noopener";
-      }
+  // Botões com data-app levam ao cadastro, à demonstração ou ao login do app. O endereço do HTML já
+  // aponta para o app (vale sem JavaScript); aqui ele segue o config.js e leva junto a origem da
+  // visita (UTM, gclid, fbclid e ?ref= de indicação), que o app guarda para medir a conversão.
+  var CAMPANHA = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "gbraid", "wbraid", "fbclid", "ref"];
+  var daVisita = new URLSearchParams(window.location.search);
+  var whatsapp = config.whatsapp ? "https://wa.me/" + config.whatsapp.replace(/\D/g, "") + "?text=" + encodeURIComponent("Olá! Quero conhecer o Semeio para a minha escola.") : null;
+  document.querySelectorAll("[data-app]").forEach(function (a) {
+    if (config.app) {
+      var url = new URL(config.app.replace(/\/$/, "") + a.getAttribute("data-app"));
+      CAMPANHA.forEach(function (p) {
+        if (daVisita.get(p)) url.searchParams.set(p, daVisita.get(p));
+      });
+      a.href = url.toString();
+    } else if (whatsapp) {
+      a.href = whatsapp;
+      a.target = "_blank";
+      a.rel = "noopener";
+    }
+  });
+
+  // Eventos de conversão (rastreio.js decide para onde vão, se houver tags configuradas).
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("[data-evento]");
+    if (!a || !window.semeioEvento) return;
+    window.semeioEvento(a.getAttribute("data-evento"), {
+      plano: a.getAttribute("data-plano") || undefined,
+      perfil: a.getAttribute("data-perfil") || undefined,
+      origem: a.getAttribute("data-origem-cta") || undefined,
     });
-    var nota = document.getElementById("contato-nota");
-    if (nota) {
-      nota.textContent = config.app
-        ? "Entre na sua conta, explore os perfis de demonstração ou crie a conta da escola e assine em poucos minutos."
-        : "Respondemos pelo WhatsApp e mostramos o sistema funcionando com os dados de uma escola de exemplo.";
-    }
-  } else {
-    // Sem cadastro online nem WhatsApp, o botão final aponta para quem mantém o produto.
-    var final = document.querySelector("[data-cta-final]");
-    if (final) {
-      final.href = "https://github.com/sf-solucoestecnologicas";
-      final.firstChild.textContent = "Falar com a SF Soluções Tecnológicas ";
-    }
-  }
+  });
 
   // Menu do celular
   var abrir = document.querySelector(".topo__abrir");
@@ -48,26 +49,45 @@
     });
   }
 
-  // Preços (centavos nos atributos data-*). O adicional de IA fica fora da oferta por enquanto.
-  var comIa = document.getElementById("com-ia");
-  function atualizarPrecos(animar) {
+  // Preços (centavos nos atributos data-*): mensal ou anual (12 meses com 10% de desconto).
+  // O adicional de IA aparece à parte, abaixo dos planos.
+  var DESCONTO_ANUAL = 0.1;
+  var real = function (centavos, casas) {
+    return "R$ " + (centavos / 100).toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas });
+  };
+  function aplicarCiclo(ciclo, animar) {
+    document.querySelectorAll("[data-ciclo]").forEach(function (b) {
+      b.setAttribute("aria-checked", String(b.getAttribute("data-ciclo") === ciclo));
+    });
     document.querySelectorAll(".plano").forEach(function (p) {
-      var centavos = Number(p.dataset.base) + (comIa && comIa.checked ? Number(p.dataset.ia) : 0);
+      var mensal = Number(p.dataset.base);
+      var cobrado = ciclo === "anual" ? Math.round((mensal * 12 * (1 - DESCONTO_ANUAL)) / 100) * 100 : mensal;
+      var porMes = ciclo === "anual" ? cobrado / 12 : mensal;
       var valor = p.querySelector(".plano__valor");
-      if (!valor) return;
-      valor.textContent = "R$ " + (centavos / 100).toLocaleString("pt-BR", { maximumFractionDigits: 0 });
-      if (!animar) return;
+      var periodo = p.querySelector(".plano__periodo");
+      var porAluno = p.querySelector(".plano__por-aluno");
+      if (valor) valor.textContent = real(cobrado, 0);
+      if (periodo) periodo.textContent = ciclo === "anual" ? "/ano" : "/mês";
+      if (porAluno) porAluno.textContent = (ciclo === "anual" ? "equivale a " + real(porMes, 0) + "/mês · " : "") + real(Math.round(porMes / Number(p.dataset.alunos)), 2) + " por aluno";
+      var botao = p.querySelector("a[data-app]");
+      if (botao) {
+        var url = new URL(botao.href, window.location.href);
+        if (ciclo === "anual") url.searchParams.set("ciclo", "anual");
+        else url.searchParams.delete("ciclo");
+        botao.href = url.toString();
+      }
+      if (!animar || !valor) return;
       valor.classList.remove("mudou");
       void valor.offsetWidth; // reinicia a animação
       valor.classList.add("mudou");
     });
   }
-  if (comIa) {
-    comIa.addEventListener("change", function () {
-      atualizarPrecos(true);
+  document.querySelectorAll("[data-ciclo]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      aplicarCiclo(b.getAttribute("data-ciclo"), true);
+      if (window.semeioEvento) window.semeioEvento("ciclo", { ciclo: b.getAttribute("data-ciclo") });
     });
-    atualizarPrecos(false);
-  }
+  });
 
   var ano = document.getElementById("ano");
   if (ano) ano.textContent = String(new Date().getFullYear());
