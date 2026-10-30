@@ -1,7 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- Apresentação do Semeio. As páginas públicas do app (cadastro e sites das escolas) estão em https://app.semeio.sbs/sitemap.xml -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://sf-solucoestecnologicas.github.io/escolapro/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <loc>https://semeio.sbs/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://semeio.sbs/img/painel.jpg</image:loc>
+      <image:title>Painel da direção no Semeio com alunos ativos, frequência, recebimentos do mês e inadimplência</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://semeio.sbs/img/financeiro.jpg</image:loc>
+      <image:title>Gestão financeira escolar no Semeio: mensalidades, recebimentos e inadimplência</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://semeio.sbs/img/diario.jpg</image:loc>
+      <image:title>Diário de classe online com chamada e notas da turma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://semeio.sbs/img/rotina.jpg</image:loc>
+      <image:title>Registro da rotina do dia de uma turma de educação infantil no celular</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://semeio.sbs/img/chat.jpg</image:loc>
+      <image:title>Conversa entre a professora e a família no chat do Semeio</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://semeio.sbs/img/portal-familia.jpg</image:loc>
+      <image:title>Portal da família no celular com mensalidades e comunicados da escola</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://semeio.sbs/img/portal-pix.jpg</image:loc>
+      <image:title>Tela de mensalidades do portal da família com botão de pagar por PIX</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://semeio.sbs/img/og.jpg</image:loc>
+      <image:title>Semeio: financeiro, secretaria e sala de aula em um só lugar</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://semeio.sbs/llms.txt</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
