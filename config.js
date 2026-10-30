@@ -1,8 +1,8 @@
 // Configuração da landing page. Edite e publique de novo (pnpm site:publicar) para mudar.
 window.ESCOLAPRO = {
-  // Endereço do app publicado (ex.: "https://app.semeio.com.br"). Os botões levam ao cadastro,
+  // Endereço do app publicado (ex.: "https://app.semeio.sbs"). Os botões levam ao cadastro,
   // à demonstração e ao login desse endereço.
-  app: "https://escolapro.fly.dev",
+  app: "https://app.semeio.sbs",
   // WhatsApp comercial, só números, com 55 e DDD (ex.: "5511999999999"). Só é usado sem app.
   whatsapp: "",
 

@@ -1,4 +1,29 @@
+# Semeio, sistema de gestão escolar para escolas particulares pequenas e médias.
+# Toda a apresentação do produto pode ser lida e indexada por buscadores e assistentes de IA.
+# Resumo para IAs: https://semeio.sbs/llms.txt
+
 User-agent: *
 Allow: /
 
-Sitemap: https://sf-solucoestecnologicas.github.io/escolapro/sitemap.xml
+# Buscadores e assistentes de IA (busca, resposta e treinamento): liberados.
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: DuckDuckBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: CCBot
+User-agent: Meta-ExternalAgent
+User-agent: Amazonbot
+Allow: /
+
+Sitemap: https://semeio.sbs/sitemap.xml
+Sitemap: https://app.semeio.sbs/sitemap.xml

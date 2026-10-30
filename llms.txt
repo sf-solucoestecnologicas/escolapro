@@ -1,0 +1,54 @@
+# Semeio
+
+> Semeio é um sistema de gestão escolar online para escolas particulares pequenas e médias no Brasil. Reúne em um só lugar o financeiro (mensalidades por PIX, boleto ou cartão e controle de inadimplência), a secretaria (matrículas e turmas), a sala de aula (diário de classe, notas e boletim), a educação infantil (rotina e pareceres) e a comunicação com as famílias (portal, comunicados e chat supervisionado). Funciona no navegador do computador e do celular, sem instalar aplicativo. É um produto da SF Soluções Tecnológicas.
+
+## Para quem é
+
+- Escolas particulares pequenas e médias: educação infantil, ensino fundamental e ensino médio, e pequenas redes com várias unidades.
+- Cada pessoa usa o mesmo sistema com o acesso que lhe cabe: direção, coordenação, secretaria, financeiro, professores, famílias e alunos.
+
+## Recursos
+
+- **Gestão financeira escolar:** os contratos geram as cobranças do ano. Com a conta de recebimento integrada (aberta no Asaas, instituição de pagamento autorizada pelo Banco Central, no nome da escola), a família paga por PIX, boleto ou cartão e o pagamento é baixado automaticamente. A escola também pode registrar os pagamentos manualmente. Multa, juros e desconto de pontualidade configuráveis; lembretes por e-mail antes e depois do vencimento; inadimplência no painel, família por família.
+- **Diário de classe online:** chamada, conteúdo, notas e tarefas na mesma tela, pensada para o celular. Médias aritmética, ponderada ou por soma, com recuperação, calculadas com as regras de cada segmento. Alerta de faltas seguidas. Boletim no portal da família.
+- **Educação infantil:** rotina do dia (alimentação, sono, humor, trocas e recados), pareceres descritivos, autorizações de passeio com aceite digital e enquetes.
+- **Comunicação com as famílias:** portal das famílias no celular, comunicados com fotos e confirmação de leitura, calendário escolar, tarefas com anexos e chat entre professores e famílias sem expor o número pessoal, acompanhado pela direção e pela coordenação. Hoje os avisos chegam pelo portal e por e-mail; a integração com o WhatsApp está em preparação.
+- **Secretaria e direção:** matrículas, turmas e transferências, captação de novos alunos em funil, importação de alunos por planilha (CSV) com prévia e painel com a situação da escola.
+- **Adicionais pagos:** assistentes de IA (planejamento de aulas e provas alinhado à BNCC, com revisão pedagógica e PDF) e site da escola com formulário de visita ligado à captação.
+
+## Planos e preços
+
+Todos os planos têm os mesmos recursos; muda o limite de alunos. Sem taxa de implantação e sem fidelidade. Plano anual com 10% de desconto. Assinatura por PIX, boleto ou cartão.
+
+- **Essencial:** R$ 194 por mês, até 150 alunos.
+- **Escola:** R$ 389 por mês, até 400 alunos.
+- **Rede:** R$ 649 por mês, até 1.000 alunos.
+- **Assistentes de IA:** + R$ 97, R$ 194 ou R$ 324 por mês, conforme o plano.
+- **Site da escola:** + R$ 49 por mês, em qualquer plano.
+- Nas mensalidades das famílias valem as tarifas do Asaas.
+
+## Como começar
+
+1. Crie a conta com os dados da escola e o seu acesso (CNPJ não é obrigatório; sem ele, a assinatura fica no CPF do responsável).
+2. Configure logo, segmentos de ensino, turmas e valores das mensalidades.
+3. Escolha o plano. O painel é liberado assim que o pagamento é confirmado.
+4. Importe a planilha de alunos e convide professores e secretaria.
+
+A própria escola faz a implantação, pelo navegador e no seu ritmo. Não há período grátis na assinatura, mas há uma demonstração sem cadastro com uma escola de exemplo e dados fictícios.
+
+## Segurança e LGPD
+
+- A escola é a controladora dos dados; o Semeio trata apenas o necessário para prestar o serviço.
+- Os dados de cada escola ficam separados no banco de dados, por regra.
+- Acesso por perfil: o professor vê as próprias turmas e a família vê só os próprios filhos.
+- Ações importantes ficam registradas (quem alterou nota, cobrança ou cadastro, e quando).
+- Senhas guardadas com hash forte e chaves de pagamento criptografadas.
+
+## Links
+
+- [Apresentação, recursos e preços](https://semeio.sbs/)
+- [Demonstração sem cadastro](https://app.semeio.sbs/?demo=direcao): perfis de direção, secretaria, professor, educação infantil, família e aluno
+- [Contratar](https://app.semeio.sbs/cadastro)
+- [Programa de parceiros](https://app.semeio.sbs/afiliados)
+- [Política de privacidade](https://app.semeio.sbs/privacidade)
+- Contato: contato@semeio.sbs
