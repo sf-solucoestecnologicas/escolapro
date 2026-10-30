@@ -155,7 +155,7 @@
 
 /* Título com brilho correndo no gradiente */
 .destaque {
-  background-image: linear-gradient(100deg, var(--marca), var(--violeta) 30%, #c026d3 50%, var(--violeta) 70%, var(--marca));
+  background-image: linear-gradient(100deg, var(--marca), #4ba84a 30%, #f5b800 50%, #4ba84a 70%, var(--marca));
   background-size: 200% auto;
   animation: brilho-texto 7s linear infinite;
 }
