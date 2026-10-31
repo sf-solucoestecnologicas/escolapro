@@ -49,6 +49,81 @@
     });
   }
 
+  // Formulário "Fale com a gente": nome, e-mail e WhatsApp vão para a API do app, que guarda o
+  // contato no painel da equipe e avisa por e-mail. Sem app configurado, cai no e-mail comercial.
+  var form = document.getElementById("form-contato");
+  if (form) {
+    var campos = form.querySelector(".contato__campos");
+    var ok = form.querySelector(".contato__ok");
+    var erro = form.querySelector(".contato__erro");
+    var enviar = form.querySelector(".contato__enviar");
+    var tel = form.elements.whatsapp;
+    var mostrarErro = function (texto, campo) {
+      erro.textContent = texto;
+      erro.hidden = false;
+      if (campo) {
+        campo.setAttribute("aria-invalid", "true");
+        campo.focus();
+      }
+    };
+    // Máscara do WhatsApp: (11) 98888-7777.
+    tel.addEventListener("input", function () {
+      var d = tel.value.replace(/\D/g, "").replace(/^55(?=\d{10,11}$)/, "").slice(0, 11);
+      tel.value = d.length > 6 ? "(" + d.slice(0, 2) + ") " + d.slice(2, d.length - 4) + "-" + d.slice(-4) : d.length > 2 ? "(" + d.slice(0, 2) + ") " + d.slice(2) : d;
+    });
+    form.addEventListener("input", function (e) {
+      e.target.removeAttribute("aria-invalid");
+      erro.hidden = true;
+    });
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var nome = form.elements.nome.value.trim();
+      var email = form.elements.email.value.trim();
+      var digitos = tel.value.replace(/\D/g, "");
+      if (nome.length < 2) return mostrarErro("Informe seu nome.", form.elements.nome);
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return mostrarErro("Confira o e-mail.", form.elements.email);
+      if (digitos.length < 10 || digitos.length > 11) return mostrarErro("Informe o WhatsApp com DDD.", tel);
+      if (!config.app) {
+        window.location.href = "mailto:contato@semeio.sbs?subject=" + encodeURIComponent("Quero conhecer o Semeio") + "&body=" + encodeURIComponent(nome + "\n" + email + "\n" + tel.value);
+        return;
+      }
+      var utm = {};
+      CAMPANHA.forEach(function (p) {
+        if (p.indexOf("utm_") === 0 && daVisita.get(p)) utm[p] = daVisita.get(p).slice(0, 200);
+      });
+      enviar.disabled = true;
+      enviar.firstChild.textContent = "Enviando… ";
+      fetch(config.app.replace(/\/$/, "") + "/v1/publico/contato", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ nome: nome, email: email, whatsapp: digitos, pagina: window.location.pathname, utm: utm, ref: daVisita.get("ref") || undefined, empresa: form.elements.empresa.value || undefined }),
+      })
+        .then(function (r) {
+          if (r.ok) return;
+          return r.json().then(
+            function (j) {
+              throw new Error(r.status === 429 ? "Muitos envios seguidos. Tente de novo em alguns minutos." : (j && j.mensagem) || "");
+            },
+            function () {
+              throw new Error("");
+            },
+          );
+        })
+        .then(function () {
+          campos.hidden = true;
+          ok.hidden = false;
+          if (window.semeioEvento) window.semeioEvento("formulario", { origem: "contato" });
+        })
+        .catch(function (falha) {
+          mostrarErro((falha && falha.message) || "Não foi possível enviar agora. Tente de novo ou escreva para contato@semeio.sbs.");
+        })
+        .finally(function () {
+          enviar.disabled = false;
+          enviar.firstChild.textContent = "Quero ser contatado ";
+        });
+    });
+  }
+
   // Preços (centavos nos atributos data-*): mensal ou anual (12 meses com 10% de desconto).
   // O adicional de IA aparece à parte, abaixo dos planos.
   var DESCONTO_ANUAL = 0.1;
