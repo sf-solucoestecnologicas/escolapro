@@ -77,12 +77,12 @@
 
   /**
    * Evento de conversão. tipo: "assinar" (clique para assinar), "demo" (abriu a demonstração),
-   * "contato" (e-mail). dados: { plano, perfil, origem }.
+   * "contato" (e-mail), "parceiro" (quer ser parceiro). dados: { plano, perfil, origem }.
    */
   window.semeioEvento = function (tipo, dados) {
     dados = dados || {};
     if (temGoogle) {
-      var nomes = { assinar: "clique_assinar", demo: "abrir_demonstracao", contato: "contato", entrar: "clique_entrar" };
+      var nomes = { assinar: "clique_assinar", demo: "abrir_demonstracao", contato: "contato", entrar: "clique_entrar", parceiro: "clique_parceiro" };
       window.gtag("event", nomes[tipo] || tipo, dados);
       var rotulo = tipo === "assinar" ? cfg.conversaoAssinar : tipo === "demo" ? cfg.conversaoDemo : "";
       if (cfg.googleAds && rotulo) window.gtag("event", "conversion", { send_to: cfg.googleAds + "/" + rotulo });

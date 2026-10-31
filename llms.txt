@@ -49,6 +49,6 @@ A própria escola faz a implantação, pelo navegador e no seu ritmo. Não há p
 - [Apresentação, recursos e preços](https://semeio.sbs/)
 - [Demonstração sem cadastro](https://app.semeio.sbs/?demo=direcao): perfis de direção, secretaria, professor, educação infantil, família e aluno
 - [Contratar](https://app.semeio.sbs/cadastro)
-- [Programa de parceiros](https://app.semeio.sbs/afiliados)
+- [Programa de parceiros](https://semeio.sbs/parceiros/): indique escolas e ganhe 30% da primeira mensalidade e 10% das seguintes, enquanto a escola for assinante, mais 10% e 5% das escolas indicadas pela sua rede; sem custo para participar. Cadastro em https://app.semeio.sbs/afiliados
 - [Política de privacidade](https://app.semeio.sbs/privacidade)
 - Contato: contato@semeio.sbs
