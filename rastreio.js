@@ -77,12 +77,12 @@
 
   /**
    * Evento de conversão. tipo: "assinar" (clique para assinar), "demo" (abriu a demonstração),
-   * "contato" (e-mail), "parceiro" (quer ser parceiro). dados: { plano, perfil, origem }.
+   * "contato" (e-mail), "formulario" (enviou o formulário de contato), "parceiro" (quer ser parceiro). dados: { plano, perfil, origem }.
    */
   window.semeioEvento = function (tipo, dados) {
     dados = dados || {};
     if (temGoogle) {
-      var nomes = { assinar: "clique_assinar", demo: "abrir_demonstracao", contato: "contato", entrar: "clique_entrar", parceiro: "clique_parceiro" };
+      var nomes = { assinar: "clique_assinar", demo: "abrir_demonstracao", contato: "contato", formulario: "generate_lead", entrar: "clique_entrar", parceiro: "clique_parceiro" };
       window.gtag("event", nomes[tipo] || tipo, dados);
       var rotulo = tipo === "assinar" ? cfg.conversaoAssinar : tipo === "demo" ? cfg.conversaoDemo : "";
       if (cfg.googleAds && rotulo) window.gtag("event", "conversion", { send_to: cfg.googleAds + "/" + rotulo });
@@ -90,7 +90,7 @@
     if (metaPronto && window.fbq) {
       if (tipo === "assinar") window.fbq("track", "Lead", { content_name: dados.plano || "sem_plano" });
       else if (tipo === "demo") window.fbq("track", "ViewContent", { content_name: "demonstracao_" + (dados.perfil || "") });
-      else if (tipo === "contato") window.fbq("track", "Contact");
+      else if (tipo === "contato" || tipo === "formulario") window.fbq("track", "Contact");
     }
   };
 

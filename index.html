@@ -128,6 +128,7 @@
           <a href="#como-funciona">Como funciona</a>
           <a href="#precos">Preços</a>
           <a href="#duvidas">Dúvidas</a>
+          <a href="#contato">Contato</a>
           <a href="parceiros/">Seja parceiro</a>
           <a href="https://app.semeio.sbs/" data-app="/" data-evento="entrar">Entrar</a>
         </nav>
@@ -575,16 +576,56 @@
         </div>
       </section>
 
-      <!-- Chamada final -->
+      <!-- Chamada final e formulário de contato -->
       <section id="contato" class="final">
         <div class="conteiner final__caixa">
-          <h2>Veja como seria a rotina da sua escola no Semeio.</h2>
-          <p>Explore a demonstração sem cadastro. Quando decidir contratar, a implantação é guiada e você pode cancelar quando quiser.</p>
-          <div class="final__acoes">
-            <a class="botao botao--claro" href="https://app.semeio.sbs/?demo=direcao" data-app="/?demo=direcao" data-evento="demo" data-perfil="direcao" data-origem-cta="final">Explorar a demonstração <svg class="ic"><use href="#i-arrow" /></svg></a>
-            <a class="botao botao--contorno-claro" href="https://app.semeio.sbs/cadastro" data-app="/cadastro" data-evento="assinar" data-origem-cta="final">Contratar o Semeio</a>
+          <div class="final__grade">
+            <div class="final__texto">
+              <span class="sobretitulo sobretitulo--claro">Fale com a gente</span>
+              <h2>Veja como seria a rotina da sua escola no Semeio.</h2>
+              <p>Explore a demonstração sem cadastro ou deixe seu contato: a nossa equipe chama você para tirar dúvidas e mostrar o sistema com calma.</p>
+              <ul class="final__lista">
+                <li><svg class="ic"><use href="#i-check" /></svg> Demonstração sem cadastro</li>
+                <li><svg class="ic"><use href="#i-check" /></svg> Implantação guiada, passo a passo</li>
+                <li><svg class="ic"><use href="#i-check" /></svg> Sem fidelidade: cancele quando quiser</li>
+              </ul>
+              <div class="final__acoes">
+                <a class="botao botao--claro" href="https://app.semeio.sbs/?demo=direcao" data-app="/?demo=direcao" data-evento="demo" data-perfil="direcao" data-origem-cta="final">Explorar a demonstração <svg class="ic"><use href="#i-arrow" /></svg></a>
+                <a class="botao botao--contorno-claro" href="https://app.semeio.sbs/cadastro" data-app="/cadastro" data-evento="assinar" data-origem-cta="final">Contratar o Semeio</a>
+              </div>
+              <p class="final__nota">Prefere e-mail? Escreva para <a href="mailto:contato@semeio.sbs?subject=D%C3%BAvida%20sobre%20o%20Semeio" data-evento="contato">contato@semeio.sbs</a>.</p>
+            </div>
+
+            <form class="contato" id="form-contato" novalidate>
+              <div class="contato__campos">
+                <h3>Quero falar com o Semeio</h3>
+                <p class="contato__sub">Preencha e entraremos em contato pelo WhatsApp ou por e-mail.</p>
+                <label class="contato__campo">
+                  <span>Seu nome</span>
+                  <input name="nome" type="text" autocomplete="name" placeholder="Como podemos chamar você?" required minlength="2" maxlength="120" />
+                </label>
+                <label class="contato__campo">
+                  <span>E-mail</span>
+                  <input name="email" type="email" autocomplete="email" inputmode="email" placeholder="voce@suaescola.com.br" required maxlength="200" />
+                </label>
+                <label class="contato__campo">
+                  <span>WhatsApp</span>
+                  <input name="whatsapp" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="(11) 98888-7777" required maxlength="20" />
+                </label>
+                <!-- Campo escondido: só robôs preenchem. -->
+                <label class="contato__robo" aria-hidden="true">Empresa <input name="empresa" type="text" tabindex="-1" autocomplete="off" /></label>
+                <p class="contato__erro" role="alert" hidden></p>
+                <button type="submit" class="botao botao--primario contato__enviar">Quero ser contatado <svg class="ic"><use href="#i-arrow" /></svg></button>
+                <p class="contato__lgpd">Usamos seus dados só para responder a este contato. Veja a <a href="https://app.semeio.sbs/privacidade">política de privacidade</a>.</p>
+              </div>
+              <div class="contato__ok" role="status" hidden>
+                <span class="contato__ok-icone"><svg class="ic"><use href="#i-check" /></svg></span>
+                <h3>Recebemos seu contato!</h3>
+                <p>Em breve a nossa equipe fala com você. Enquanto isso, que tal explorar a demonstração?</p>
+                <a class="botao botao--primario" href="https://app.semeio.sbs/?demo=direcao" data-app="/?demo=direcao" data-evento="demo" data-perfil="direcao" data-origem-cta="contato">Explorar a demonstração <svg class="ic"><use href="#i-arrow" /></svg></a>
+              </div>
+            </form>
           </div>
-          <p class="final__nota">Ficou com alguma dúvida? Escreva para <a href="mailto:contato@semeio.sbs?subject=D%C3%BAvida%20sobre%20o%20Semeio" data-evento="contato">contato@semeio.sbs</a>.</p>
         </div>
       </section>
     </main>
@@ -599,6 +640,7 @@
           © <span id="ano">2026</span> Semeio · um produto da <a href="https://github.com/sf-solucoestecnologicas">SF Soluções Tecnológicas</a> ·
           <a href="https://app.semeio.sbs/privacidade">Privacidade</a> ·
           <a href="https://app.semeio.sbs/termos">Termos de uso</a> ·
+          <a href="#contato">Fale com a gente</a> ·
           <a href="parceiros/">Seja parceiro</a> ·
           <a href="#" data-abrir-cookies hidden>Cookies</a>
         </p>
